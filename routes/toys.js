@@ -45,6 +45,11 @@ router.get("/search", async (req, res) => {
 })
 
 
+router.get("/search", async (req, res) => {
+
+
+})
+
 
 router.get("/category/:cat", async (req, res) => {
   let perPage = req.query.perPage || 10;
@@ -52,7 +57,7 @@ router.get("/category/:cat", async (req, res) => {
 
   try {
     let catName = req.params.cat;
-    let catReg = new RegExp(catName, "i")
+    let catReg = new RegExp(catName, "i");
     let data = await ToyModel.find({ category: catReg })
       .limit(perPage)
       .skip((page - 1) * perPage)
@@ -84,6 +89,40 @@ router.post("/", async (req, res) => {
 })
 
 
+router.put("/:idEdit", async(req,res) => {
+  let valdiateBody = validateToy(req.body);
+  if(valdiateBody.error){
+    return res.status(400).json(valdiateBody.error.details);
+  }
+  try{
+    //have to complete token identification
+    let idEdit = req.params.idEdit;
+    let data = await CountryModel.updateOne({_id:idEdit},req.body);
+    // modfiedCount:1 - אם יש הצלחה
+    res.json(data);
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({msg:"err couldn't update toy",err})
+  }
+})
 
+
+router.delete("/:idDel",auth, async(req,res) => {
+  try{
+    let idDel = req.params.idDel
+    // צריך לתקן!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // כדי שמשתמש יוכל למחוק רשומה הוא חייב 
+    // שלרשומה יהיה את האיי די ביוזר איי די שלו
+    // let data = await CountryModel.deleteOne({_id:idDel,user_id:req.tokenData._id})
+    let data = await CountryModel.deleteOne({_id:idDel})
+    // "deletedCount": 1 -  אם יש הצלחה של מחיקה
+    res.json(data);
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({msg:"err, couldn't delete the item from db",err})
+  }
+})
 
 module.exports = router;
