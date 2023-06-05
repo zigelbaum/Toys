@@ -108,7 +108,8 @@ router.put("/:idEdit", async(req,res) => {
 })
 
 
-router.delete("/:idDel",auth, async(req,res) => {
+// router.delete("/:idDel",auth, async(req,res) => {
+router.delete("/:idDel", async(req,res) => {
   try{
     let idDel = req.params.idDel
     // צריך לתקן!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
