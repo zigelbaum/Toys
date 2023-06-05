@@ -45,11 +45,6 @@ router.get("/search", async (req, res) => {
 })
 
 
-router.get("/search", async (req, res) => {
-
-
-})
-
 
 router.get("/category/:cat", async (req, res) => {
   let perPage = req.query.perPage || 10;
@@ -124,6 +119,56 @@ router.delete("/:idDel", async(req,res) => {
     console.log(err)
     res.status(500).json({msg:"err, couldn't delete the item from db",err})
   }
+})
+
+router.get("/prices",async (req,res) => { //works
+       let perPage = req.query.perPage || 10;
+        let page = req.query.page || 1;
+        let sort = req.query.sort || "price"
+        let reverse = req.query.reverse == "yes" ? -1 : 1;
+        try{
+          let min = req.query.min;
+          let max = req.query.max;
+          if(min&&max){
+            let data = await ToyModel.find({$and:[{price:{$gte:min}},{price:{$lte:max}}]})
+            
+            .limit(perPage)
+            .skip((page - 1)*perPage)
+            .sort({[sort]:reverse})
+            res.json(data);
+          }
+          else if(max){
+            let data = await ToyModel.find({price:{$lte:max}})
+            .limit(perPage)
+            .skip((page - 1)*perPage)
+            .sort({[sort]:reverse})
+            res.json(data);
+          }else if(min){
+            let data = await ToyModel.find({price:{$gte:min}})
+            .limit(perPage)
+            .skip((page - 1)*perPage)
+            .sort({[sort]:reverse})
+            res.json(data);
+          }else{
+            let data = await ToyModel.find({})
+            .limit(perPage)
+            .skip((page - 1)*perPage)
+            .sort({[sort]:reverse})
+            res.json(data);
+          }
+        }
+        catch(err){
+          console.log(err);
+          res.status(500).json({msg:"couldnt retrieve data due to an error",err})
+        }
+})
+router.get("/single/:id", async (req, res) => { //works
+  let id = req.params.id;
+  let singleToy = await ToyModel.find({_id:id});
+  if (!singleToy) {
+      return res.json({msg:"toy not found"})
+  }
+  res.json(singleToy)
 })
 
 module.exports = router;
