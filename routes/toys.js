@@ -162,6 +162,7 @@ router.get("/prices",async (req,res) => { //works
           res.status(500).json({msg:"couldnt retrieve data due to an error",err})
         }
 })
+
 router.get("/single/:id", async (req, res) => { //works
   let id = req.params.id;
   let singleToy = await ToyModel.find({_id:id});
