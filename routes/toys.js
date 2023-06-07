@@ -92,7 +92,7 @@ router.put("/:idEdit", async(req,res) => {
   try{
     //have to complete token identification
     let idEdit = req.params.idEdit;
-    let data = await CountryModel.updateOne({_id:idEdit},req.body);
+    let data = await ToyModel.updateOne({_id:idEdit},req.body);
     // modfiedCount:1 - אם יש הצלחה
     res.json(data);
   }
@@ -110,8 +110,8 @@ router.delete("/:idDel", async(req,res) => {
     // צריך לתקן!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // כדי שמשתמש יוכל למחוק רשומה הוא חייב 
     // שלרשומה יהיה את האיי די ביוזר איי די שלו
-    // let data = await CountryModel.deleteOne({_id:idDel,user_id:req.tokenData._id})
-    let data = await CountryModel.deleteOne({_id:idDel})
+    // let data = await ToyModel.deleteOne({_id:idDel,user_id:req.tokenData._id})
+    let data = await ToyModel.deleteOne({_id:idDel})
     // "deletedCount": 1 -  אם יש הצלחה של מחיקה
     res.json(data);
   }

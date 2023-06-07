@@ -5,9 +5,19 @@ const bcrypt = require("bcrypt");
 const {validateUser} = require("../validation/userValidation")
 const router = express.Router();
 
-router.get("/" , (req,res)=> {
-  res.json({msg:"users works!"})
+
+// router.get("/myEmail", auth, async (req, res) => {
+router.get("/myEmail",  async (req, res) => {
+  try {
+    let user = await UserModel.findOne({ _id: req.tokenData._id }, { email: 1 });
+    res.json(user);
+  }
+  catch (err) {
+    console.log(error);
+    res.status(500).json({ msg: "err", err })
+  }
 })
+
 
 //user sign up to db
 router.post("/",async (req, res) => {
