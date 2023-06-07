@@ -10,7 +10,7 @@ let userSchema = new mongoose.Schema({
   date_created: {
     type: Date, default: Date.now()
   },
- 
+
   role: {
     type: String, default: "user"
   }
