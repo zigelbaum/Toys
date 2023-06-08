@@ -14,6 +14,6 @@ const toysSchema = new mongoose.Schema({
   })
 
  
-  exports.ToyModel = mongoose.model("Toys", toysSchema);
+  exports.ToyModel = mongoose.model("toys", toysSchema);
 
   
