@@ -8,7 +8,7 @@ async function main() {
   // mongodb+srv://elisheva777:eli777me@cluster1.mqgr2av.mongodb.net/
   // await mongoose.connect(`mongodb+srv://${config.userDb}:${config.passDb}@cluster1.mqgr2av.mongodb.net/Toys_Api`);
   
- await mongoose.connect('mongodb://user:password@127.0.0.1:27017/Toys_Api');
+ await mongoose.connect('mongodb://localhost:27017/Toys_Api');
   console.log("mongo connect");
 
 }
