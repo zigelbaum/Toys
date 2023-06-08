@@ -1,83 +1,84 @@
+
 [
-    {
-        "fullName":[
-            "firstName": "bob",
-            "lastName": "choen",
-        ],
-        "email":"bob@gmail.com",
-        "password":"123456789"
+  {
+    "fullName":{
+      "firstName": "bob",
+      "lastName": "choen"
+  },
+    "email":"bob@gmail.com",
+    "password":"123456789"
+  },
+  {
+    "fullName":{
+      "firstName": "moe",
+      "lastName": "levi"
     },
-    {
-        "fullName":[]
-             "firstName": "moe",
-            "lastName": "levi",
-        ],
-        "email":"moe@gmail.com",
-        "password":"111111111"
+    "email":"mmmm@gmail.com",
+    "password":"111111111"
+  },
+  {
+    "fullName":{
+      "firstName": "sara",
+      "lastName": "stern"
+  },
+    "email":"sara@gmail.com",
+    "password":"222222222"
+  },
+  {
+    "fullName":{
+      "firstName": "jake",
+      "lastName": "rosen"
+  },
+    "email":"jake@gmail.com",
+    "password":"333333333"
+  },
+  {
+    "fullName":{
+      "firstName": "leah",
+      "lastName": "katz"
+  },
+    "email":"leah@gmail.com",
+    "password":"444444444"
+  },
+  {
+    "fullName":{
+      "firstName": "shawn",
+      "lastName": "dot"
+  },
+    "email":"leah@gmail.com",
+    "password":"555555555"
+  },
+  {
+    "fullName":{
+      "firstName": "barry",
+      "lastName": "shaw"
+  },
+    "email":"barry@gmail.com",
+    "password":"666666666"
+  },
+  {
+    "fullName":{
+      "firstName": "avraham",
+      "lastName": "top"
+  },
+    "email":"avraham@gmail.com",
+    "password":"777777777"
+  },
+  {
+    "fullName":{
+      "firstName": "rivka",
+      "lastName": "rose"
     },
-    {
-        "fullName":[
-            "firstName": "sara",
-            "lastName": "stern",
-        ],
-        "email":"sara@gmail.com",
-        "password":"222222222"
+    "email":"rivka@gmail.com",
+    "password":"888888888"
+  },
+  {
+    "fullName":{
+      "firstName": "rachel",
+      "lastName": "richi"
     },
-    {
-        "fullName":[
-            "firstName": "jake",
-            "lastName": "rosen",
-        ],
-        "email":"jake@gmail.com",
-        "password":"333333333"
-    },
-    {
-        "fullName":[
-            "firstName": "leah",
-            "lastName": "katz",
-        ],
-        "email":"leah@gmail.com",
-        "password":"444444444"
-    },
-    {
-        "fullName":[
-            "firstName": "shawn",
-            "lastName": "dot",
-        ],
-        "email":"leah@gmail.com",
-        "password":"555555555"
-    },
-    {
-        "fullName":[
-            "firstName": "barry",
-            "lastName": "shaw",
-        ],
-        "email":"barry@gmail.com",
-        "password":"666666666"
-    },
-    {
-        "fullName":[
-            "firstName": "avraham",
-            "lastName": "top",
-        ],
-        "email":"avraham@gmail.com",
-        "password":"777777777"
-    },
-    {
-        "fullName":[
-            "firstName": "rivka",
-            "lastName": "rose",
-        ],
-        "email":"rivka@gmail.com",
-        "password":"888888888"
-    },
-    {
-        "fullName":[
-            "firstName": "rachel",
-            "lastName": "richi",
-        ],
-        "email":"rachel@gmail.com",
-        "password":"999999999"
-    }
-  
+    "email":"rachel@gmail.com",
+    "password":"999999999"
+  }
+ 
 ]
