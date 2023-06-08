@@ -21,11 +21,11 @@ router.get("/myInfo", auth, async (req, res) => {
 
 router.get("/usersList", authAdmin, async (req, res) => {
   try {
-    let user = await UserModel.findOne({ _id: req.tokenData._id }, { password: 0 });
-    res.json(user);
+    let users = await UserModel.find({}, { password: 0 });
+    res.json(users);
   }
   catch (err) {
-    console.log(error);
+    console.log(err);
     res.status(500).json({ msg: "err", err })
   }
 })
