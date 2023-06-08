@@ -1,13 +1,12 @@
+// getting-started.js
 const mongoose = require('mongoose');
-const {config} = require("../config/secret");
+const {config}=require('../config/secret')
 main().catch(err => console.log(err));
 
-
 async function main() {
-//  if you want use database locali(localhost-3000)
-  await mongoose.connect('mongodb://127.0.0.1:27017/Toys_Api');
+    
+  await mongoose.connect(`mongodb+srv://${config.userDb}:${config.passDb}@cluster1.mqgr2av.mongodb.net/black`);
+  console.log("mongo connect");
 
-  // await mongoose.connect(`mongodb+srv://${config.userDb}:${config.passDb}@cluster0.ijk1hfe.mongodb.net/Toys_Api`);
-  console.log("mongo connected to TOYS")
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
-
