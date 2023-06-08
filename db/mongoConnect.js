@@ -4,7 +4,7 @@ const {config}=require('../config/secret')
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://elishevaronstam:eli777me@cluster0.q9ao7bf.mongodb.net/Toys_Api')
+  await mongoose.connect(`mongodb+srv://${config.userDb}:${config.passDb}@cluster0.q9ao7bf.mongodb.net/Toys_Api`)
 
   console.log("mongo connect");
 
