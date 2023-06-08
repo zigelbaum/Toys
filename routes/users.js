@@ -63,19 +63,16 @@ router.post("/login", async (req, res) => {
   try {
     //check if the email exists in the db
     let user = await UserModel.findOne({ email: req.body.email })
-    console.log("1");
     if (!user) {
       return res.status(401).json({ msg: "Password or email is incorrect ,code:1" })
     }
     // check if the password entered matches the encrypted password in the db
     let isPassword = await bcrypt.compare(req.body.password, user.password);
-    console.log("2");
     if (!isPassword) {
       return res.status(401).json({ msg: "Password or email is incorrect ,code:2" });
     }
     //Generate a token with the user's ID
     let token = createToken(user._id, user.role);
-    console.log("3");
     res.json({ token });
   }
   catch (err) {
